@@ -3,10 +3,12 @@ import {LandingComponent} from './components/landing/landing.component';
 import {SignUpComponent} from './components/sign-up/sign-up.component';
 import {LogInComponent} from './components/log-in/log-in.component';
 import {RouterModule} from '@angular/router';
+import {SuccessComponent} from './components/success/success.component';
 
 const routes = [
   { path: 'login', component: LogInComponent },
   { path: 'sign-up', component: SignUpComponent },
+  { path: 'success', component: SuccessComponent },
   { path: '', component: LandingComponent },
   { path: '**', redirectTo: '/' }
 ];

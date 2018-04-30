@@ -6,6 +6,7 @@ import {SignUpComponent} from './components/sign-up/sign-up.component';
 import {LogInComponent} from './components/log-in/log-in.component';
 import {AppRoutingModule} from './app-routing.module';
 import {ReactiveFormsModule} from '@angular/forms';
+import { SuccessComponent } from './components/success/success.component';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import {ReactiveFormsModule} from '@angular/forms';
     AppComponent,
     LandingComponent,
     SignUpComponent,
-    LogInComponent
+    LogInComponent,
+    SuccessComponent
   ],
   imports: [
     BrowserModule,
