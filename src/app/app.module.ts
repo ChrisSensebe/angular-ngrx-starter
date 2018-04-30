@@ -1,11 +1,10 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
-
-import { AppComponent } from './app.component';
-import { LandingComponent } from './components/landing/landing.component';
-import { SignUpComponent } from './components/sign-up/sign-up.component';
-import { LogInComponent } from './components/log-in/log-in.component';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {AppComponent} from './app.component';
+import {LandingComponent} from './components/landing/landing.component';
+import {SignUpComponent} from './components/sign-up/sign-up.component';
+import {LogInComponent} from './components/log-in/log-in.component';
+import {AppRoutingModule} from './app-routing.module';
 
 
 @NgModule({
@@ -16,7 +15,8 @@ import { LogInComponent } from './components/log-in/log-in.component';
     LogInComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
