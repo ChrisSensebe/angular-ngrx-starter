@@ -5,7 +5,7 @@ import {LogInComponent} from './components/log-in/log-in.component';
 import {RouterModule} from '@angular/router';
 
 const routes = [
-  { path: 'log-in', component: LogInComponent },
+  { path: 'login', component: LogInComponent },
   { path: 'sign-up', component: SignUpComponent },
   { path: '', component: LandingComponent },
   { path: '**', redirectTo: '/' }
