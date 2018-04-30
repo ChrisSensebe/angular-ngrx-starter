@@ -5,6 +5,7 @@ import {LandingComponent} from './components/landing/landing.component';
 import {SignUpComponent} from './components/sign-up/sign-up.component';
 import {LogInComponent} from './components/log-in/log-in.component';
 import {AppRoutingModule} from './app-routing.module';
+import {ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import {AppRoutingModule} from './app-routing.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
