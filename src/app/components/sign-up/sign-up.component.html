@@ -1,3 +1,11 @@
-<p>
-  sign-up works!
-</p>
+<div [formGroup]="signUpForm">
+  <label for="username">Username</label>
+  <input type="text" id="username" formControlName="username">
+  <label for="email">email</label>
+  <input type="text" id="email" formControlName="email">
+  <label for="password">Password</label>
+  <input type="password" id="password" formControlName="password">
+  <label for="passwordRepeat">Repeat password</label>
+  <input type="password" id="passwordRepeat" formControlName="passwordRepeat">
+  <button (click)="signUp()">Sign up</button>
+</div>
