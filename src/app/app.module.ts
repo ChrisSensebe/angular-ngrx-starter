@@ -8,6 +8,8 @@ import {AppRoutingModule} from './app-routing.module';
 import {ReactiveFormsModule} from '@angular/forms';
 import { SuccessComponent } from './components/success/success.component';
 import {AuthService} from './services/auth.service';
+import {EffectsModule} from '@ngrx/effects';
+import {AuthEffects} from './store/effects/auth.effects';
 
 
 @NgModule({
@@ -21,7 +23,8 @@ import {AuthService} from './services/auth.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    EffectsModule.forRoot([AuthEffects])
   ],
   providers: [
     AuthService
