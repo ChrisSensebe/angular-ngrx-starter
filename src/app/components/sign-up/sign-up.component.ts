@@ -24,6 +24,6 @@ export class SignUpComponent implements OnInit {
   }
 
   signUp() {
-    // TODO
+    console.log(this.signUpForm.value);
   }
 }

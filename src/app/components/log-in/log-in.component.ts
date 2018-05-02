@@ -21,6 +21,6 @@ export class LogInComponent implements OnInit {
   }
 
   login() {
-    // TODO
+    console.log(this.loginForm.value);
   }
 }
