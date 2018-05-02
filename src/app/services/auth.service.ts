@@ -17,8 +17,6 @@ const delay = 500;
 @Injectable()
 export class AuthService {
 
-  private apiUrl = 'http://localhost:1337';
-
   constructor(private http: HttpClient) { }
 
   getToken(): string {
