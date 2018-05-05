@@ -6,11 +6,13 @@ import {SignUpComponent} from './components/sign-up/sign-up.component';
 import {LogInComponent} from './components/log-in/log-in.component';
 import {AppRoutingModule} from './app-routing.module';
 import {ReactiveFormsModule} from '@angular/forms';
-import { SuccessComponent } from './components/success/success.component';
+import {SuccessComponent} from './components/success/success.component';
 import {AuthService} from './services/auth.service';
 import {EffectsModule} from '@ngrx/effects';
 import {AuthEffects} from './store/effects/auth.effects';
-
+import {StoreModule} from '@ngrx/store';
+import {reducers} from './store/app.states';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,8 +25,10 @@ import {AuthEffects} from './store/effects/auth.effects';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    StoreModule.forRoot(reducers, {}),
+    EffectsModule.forRoot([AuthEffects]),
     ReactiveFormsModule,
-    EffectsModule.forRoot([AuthEffects])
+    HttpClientModule
   ],
   providers: [
     AuthService
