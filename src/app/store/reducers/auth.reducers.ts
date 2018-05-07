@@ -25,7 +25,7 @@ export function reducer(state = initialState, action: All): State {
           token: action.payload.token,
           email: action.payload.email
         },
-        message: `Welcome ${action.payload.username}`
+        message: 'login success'
       };
     case AuthActionTypes.LOGIN_FAILURE:
       return {
@@ -42,7 +42,7 @@ export function reducer(state = initialState, action: All): State {
           token: action.payload.token,
           email: action.payload.email
         },
-        message: `Welcome ${action.payload.username}`
+        message: 'signup success'
       };
     case AuthActionTypes.SIGNUP_FAILURE:
       return {

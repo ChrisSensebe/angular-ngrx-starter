@@ -2,9 +2,10 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {matchingFieldsValidator} from '../../validators/matching-fields.validator';
 import {Store} from '@ngrx/store';
-import {AppState} from '../../store/app.states';
+import {AppState, selectAuthState} from '../../store/app.states';
 import {SignUp} from '../../store/actions/auth.actions';
 import {SignUpPayload} from '../../models/sign-up-payload.interface';
+import {Observable} from 'rxjs/Observable';
 
 @Component({
   selector: 'app-sign-up',
@@ -14,6 +15,8 @@ import {SignUpPayload} from '../../models/sign-up-payload.interface';
 export class SignUpComponent implements OnInit {
 
   signUpForm: FormGroup;
+  message: string;
+  state$: Observable<any>;
 
   constructor(private store: Store<AppState>) {
     this.signUpForm = new FormGroup({
@@ -22,9 +25,11 @@ export class SignUpComponent implements OnInit {
       password: new FormControl('', Validators.required),
       passwordRepeat: new FormControl('', Validators.required)
     }, {validators: matchingFieldsValidator('password', 'passwordRepeat')});
+    this.state$ = this.store.select(selectAuthState);
   }
 
   ngOnInit() {
+    this.state$.subscribe(state => this.message = state.message);
   }
 
   signUp() {
