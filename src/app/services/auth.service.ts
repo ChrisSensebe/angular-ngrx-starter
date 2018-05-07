@@ -4,6 +4,9 @@ import {Observable} from 'rxjs/Observable';
 import {User} from '../models/user-model.interface';
 import {of} from 'rxjs/observable/of';
 import 'rxjs/add/operator/delay';
+import 'rxjs/add/observable/throw';
+import {SignUpPayload} from '../models/sign-up-payload.interface';
+import {LogInPayload} from '../models/log-in-payload.interface';
 
 const user: User = {
   id: '1',
@@ -23,11 +26,13 @@ export class AuthService {
     return localStorage.getItem('token');
   }
 
-  login(email: string, password: string): Observable<User> {
-    return of(user).delay(delay);
+  login(loginPayload: LogInPayload): Observable<User> {
+    const isValidUser = loginPayload.email === 'user@email.com' && loginPayload.password === 'password';
+    const errorMessage = 'Invalid email or password';
+    return isValidUser ? of(user).delay(delay) : Observable.throw(new Error(errorMessage));
   }
 
-  signup(email: string, password: string): Observable<User> {
+  signup(signupPayload: SignUpPayload): Observable<User> {
     return of(user).delay(delay);
   }
 }
