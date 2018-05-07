@@ -32,6 +32,23 @@ export function reducer(state = initialState, action: All): State {
         ...state,
         message: 'Incorrect email or password'
       };
+    case AuthActionTypes.SIGNUP_SUCCESS:
+      return {
+        ...state,
+        isAuthenticated: true,
+        user: {
+          id: action.payload.id,
+          username: action.payload.username,
+          token: action.payload.token,
+          email: action.payload.email
+        },
+        message: `Welcome ${action.payload.username}`
+      };
+    case AuthActionTypes.SIGNUP_FAILURE:
+      return {
+        ...state,
+        message: 'Error creating user'
+      };
     default:
       return state;
   }
