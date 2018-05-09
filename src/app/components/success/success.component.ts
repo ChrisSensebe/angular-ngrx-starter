@@ -22,11 +22,11 @@ export class SuccessComponent implements OnInit {
   ngOnInit() {
     this.state$.subscribe(state => {
       this.message = state.message;
-      this.username = state.user.username;
+      this.username = state.user ? state.user.username : '';
     });
   }
 
   logout() {
-    this.store.dispatch(new LogOut());
+    this.store.dispatch(new LogOut);
   }
 }

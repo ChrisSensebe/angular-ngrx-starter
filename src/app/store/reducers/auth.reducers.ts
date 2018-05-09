@@ -49,6 +49,8 @@ export function reducer(state = initialState, action: All): State {
         ...state,
         message: 'Error creating user'
       };
+    case AuthActionTypes.LOGOUT:
+      return initialState;
     default:
       return state;
   }

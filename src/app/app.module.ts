@@ -13,6 +13,7 @@ import {AuthEffects} from './store/effects/auth.effects';
 import {StoreModule} from '@ngrx/store';
 import {reducers} from './store/app.states';
 import {HttpClientModule} from '@angular/common/http';
+import {StatusComponent} from './components/status/status.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {HttpClientModule} from '@angular/common/http';
     LandingComponent,
     SignUpComponent,
     LogInComponent,
-    SuccessComponent
+    SuccessComponent,
+    StatusComponent
   ],
   imports: [
     BrowserModule,
