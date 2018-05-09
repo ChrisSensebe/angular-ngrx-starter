@@ -12,7 +12,6 @@ import {Observable} from 'rxjs/Observable';
 export class SuccessComponent implements OnInit {
 
   state$: Observable<any>;
-  message: string | null;
   username: string;
 
   constructor(private store: Store<AppState>) {
@@ -20,10 +19,7 @@ export class SuccessComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.state$.subscribe(state => {
-      this.message = state.message;
-      this.username = state.user ? state.user.username : '';
-    });
+    this.state$.subscribe(state => this.username = state.user ? state.user.username : '');
   }
 
   logout() {

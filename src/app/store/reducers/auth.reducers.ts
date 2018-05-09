@@ -4,13 +4,11 @@ import {All, AuthActionTypes} from '../actions/auth.actions';
 export interface State {
   isAuthenticated: boolean;
   user: User | null;
-  message: string | null;
 }
 
 export const initialState: State = {
   isAuthenticated: false,
-  user: null,
-  message: null
+  user: null
 };
 
 export function reducer(state = initialState, action: All): State {
@@ -24,13 +22,11 @@ export function reducer(state = initialState, action: All): State {
           username: action.payload.username,
           token: action.payload.token,
           email: action.payload.email
-        },
-        message: 'login success'
+        }
       };
     case AuthActionTypes.LOGIN_FAILURE:
       return {
-        ...state,
-        message: 'Incorrect email or password'
+        ...state
       };
     case AuthActionTypes.SIGNUP_SUCCESS:
       return {
@@ -41,16 +37,17 @@ export function reducer(state = initialState, action: All): State {
           username: action.payload.username,
           token: action.payload.token,
           email: action.payload.email
-        },
-        message: 'signup success'
+        }
       };
     case AuthActionTypes.SIGNUP_FAILURE:
       return {
-        ...state,
-        message: 'Error creating user'
+        ...state
       };
     case AuthActionTypes.LOGOUT:
-      return initialState;
+      return {
+        isAuthenticated: false,
+        user: null
+      };
     default:
       return state;
   }

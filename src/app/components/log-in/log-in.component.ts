@@ -13,7 +13,6 @@ import {Observable} from 'rxjs/Observable';
 export class LogInComponent implements OnInit {
 
   loginForm: FormGroup;
-  message: string;
   state$: Observable<any>;
 
   constructor(private store: Store<AppState>) {
@@ -25,7 +24,6 @@ export class LogInComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.state$.subscribe(state => this.message = state.message);
   }
 
   login() {

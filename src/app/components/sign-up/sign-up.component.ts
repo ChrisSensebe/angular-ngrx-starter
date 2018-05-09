@@ -15,7 +15,6 @@ import {Observable} from 'rxjs/Observable';
 export class SignUpComponent implements OnInit {
 
   signUpForm: FormGroup;
-  message: string;
   state$: Observable<any>;
 
   constructor(private store: Store<AppState>) {
@@ -29,7 +28,6 @@ export class SignUpComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.state$.subscribe(state => this.message = state.message);
   }
 
   signUp() {
