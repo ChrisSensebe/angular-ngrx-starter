@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Store} from '@ngrx/store';
+import {select, Store} from '@ngrx/store';
 import {AppState, selectAuthState} from '../../store/app.states';
-import {Observable} from 'rxjs/Observable';
+import {Observable} from 'rxjs';
 import {LogOut} from '../../store/actions/auth.actions';
 
 @Component({
@@ -15,7 +15,7 @@ export class LandingComponent implements OnInit {
   isAuthenticated: boolean;
 
   constructor(private store: Store<AppState>) {
-    this.state$ = this.store.select(selectAuthState);
+    this.state$ = this.store.pipe(select(selectAuthState));
   }
 
   ngOnInit() {

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {AppState, selectAuthState} from '../../store/app.states';
-import {Store} from '@ngrx/store';
+import {select, Store} from '@ngrx/store';
 import {LogIn} from '../../store/actions/auth.actions';
-import {Observable} from 'rxjs/Observable';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-log-in',
@@ -20,7 +20,7 @@ export class LogInComponent implements OnInit {
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', Validators.required)
     });
-    this.state$ = this.store.select(selectAuthState);
+    this.state$ = this.store.pipe(select(selectAuthState));
   }
 
   ngOnInit() {

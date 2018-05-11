@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {AppState, selectAuthState} from './store/app.states';
-import {Store} from '@ngrx/store';
-import {Observable} from 'rxjs/Observable';
+import {select, Store} from '@ngrx/store';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +13,6 @@ export class AppComponent {
   state$: Observable<any>;
 
   constructor(private store: Store<AppState>) {
-    this.state$ = this.store.select(selectAuthState);
+    this.state$ = this.store.pipe(select(selectAuthState));
   }
 }

@@ -1,8 +1,8 @@
 <h1>Angular ngrx starter</h1>
 <ng-container *ngIf="!isAuthenticated">
-  <a [routerLink]="['/login']">Login</a>
-  <a [routerLink]="['/sign-up']">Sign up</a>
+  <a [routerLink]="['/login']">Login</a><br>
+  <a [routerLink]="['/signup']">Signup</a>
 </ng-container>
 <ng-container *ngIf="isAuthenticated">
-  <a href="" (click)="logout()">Log out</a>
+  <a href="" (click)="logout()">Logout</a>
 </ng-container>

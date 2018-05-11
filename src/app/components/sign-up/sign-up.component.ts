@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {matchingFieldsValidator} from '../../validators/matching-fields.validator';
-import {Store} from '@ngrx/store';
+import {select, Store} from '@ngrx/store';
 import {AppState, selectAuthState} from '../../store/app.states';
 import {SignUp} from '../../store/actions/auth.actions';
 import {SignUpPayload} from '../../models/sign-up-payload.interface';
-import {Observable} from 'rxjs/Observable';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-sign-up',
@@ -24,7 +24,7 @@ export class SignUpComponent implements OnInit {
       password: new FormControl('', Validators.required),
       passwordRepeat: new FormControl('', Validators.required)
     }, {validators: matchingFieldsValidator('password', 'passwordRepeat')});
-    this.state$ = this.store.select(selectAuthState);
+    this.state$ = this.store.pipe(select(selectAuthState));
   }
 
   ngOnInit() {
