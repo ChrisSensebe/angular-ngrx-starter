@@ -14,6 +14,7 @@ import {StoreModule} from '@ngrx/store';
 import {reducers} from './store/app.states';
 import {HttpClientModule} from '@angular/common/http';
 import {StatusComponent} from './components/status/status.component';
+import {AuthGuard} from './services/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import {StatusComponent} from './components/status/status.component';
     HttpClientModule
   ],
   providers: [
-    AuthService
+    AuthService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
