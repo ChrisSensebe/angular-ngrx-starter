@@ -1,6 +1,7 @@
 version: '3.5'
 
 services:
+
   angular-ngrx-starter:
     container_name: angular-ngrx-starter
     build:
