@@ -12,9 +12,10 @@ import {EffectsModule} from '@ngrx/effects';
 import {AuthEffects} from './store/effects/auth.effects';
 import {StoreModule} from '@ngrx/store';
 import {reducers} from './store/app.states';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {StatusComponent} from './components/status/status.component';
 import {AuthGuard} from './services/auth-guard.service';
+import {TokenInterceptor} from './http-interceptors/token-interceptor';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,12 @@ import {AuthGuard} from './services/auth-guard.service';
   ],
   providers: [
     AuthService,
-    AuthGuard
+    AuthGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })
